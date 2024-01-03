@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import me.learn.springboot.domain.Article;
 import me.learn.springboot.dto.AddArticleRequest;
 import me.learn.springboot.dto.ArticleResponse;
+import me.learn.springboot.dto.UpdateArticleRequest;
 import me.learn.springboot.service.BoardService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -45,5 +46,21 @@ public class BoardController {
 
         return ResponseEntity.ok()
                 .body(new ArticleResponse(article));
+    }
+
+    @PutMapping("/board/{id}")
+    public ResponseEntity<Article> updateArticle(@PathVariable long id, @RequestBody UpdateArticleRequest request) {
+        Article updatedArticle = boardService.update(id, request);
+
+        return ResponseEntity.ok()
+                .body(updatedArticle);
+    }
+
+    @DeleteMapping("/board/{id}")
+    public ResponseEntity<Void> deleteArticle(@PathVariable long id) {
+        boardService.delete(id);
+
+        return ResponseEntity.ok()
+                .build();
     }
 }
