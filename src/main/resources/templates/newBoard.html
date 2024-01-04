@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>글 작성</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/minty/bootstrap.min.css" integrity="sha384-H4X+4tKc7b8s4GoMrylmy2ssQYpDHoqzPa9aKXbDwPoPUA3Ra8PA5dGzijN+ePnH" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="p-5 mb-5 bg-light">
+        <h1 style="font-family: 'Black Han Sans', sans-serif" onclick="location.href='/show/board'">My Board</h1>
+        <h5 style="font-family: 'Black Han Sans', sans-serif">나의 게시판</h5>
+    </div>
+    <div class="container mt-5">
+        <div class="form-group">
+            <article>
+                <input type="hidden" id="article-id" th:value="${article.id}">
+                <header class="mb-4">
+                    <label class="col-form-label col-form-label-lg mt-4" for="inputLarge" th:if="${article.id} != null">글 수정하기</label>
+                    <label class="col-form-label col-form-label-lg mt-4" for="inputLarge" th:if="${article.id} == null">글 새로쓰기</label>
+                    <input type="text" class="form-control form-control-lg" placeholder="제목" id="inputLarge" th:value="${article.title}">
+                </header>
+                <section class="mb-4">
+                    <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="내용" th:text="${article.content}"></textarea>
+                </section>
+                <button th:if="${article.id} != null" type="button" class="btn btn-secondary" id="modify-btn">수정</button>
+                <button th:if="${article.id} == null" type="button" class="btn btn-success" id="create-btn">등록</button>
+            </article>
+        </div>
+    </div>
+    <script src="/js/board.js"></script>
+</body>
+</html>

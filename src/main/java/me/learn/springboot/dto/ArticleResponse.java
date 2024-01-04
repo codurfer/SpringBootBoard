@@ -1,13 +1,15 @@
 package me.learn.springboot.dto;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import me.learn.springboot.domain.Article;
 
+@NoArgsConstructor
 @Getter
 public class ArticleResponse {
-    private final Long id;
-    private final String title;
-    private final String content;
+    private Long id;
+    private String title;
+    private String content;
 
     public ArticleResponse(Article article) {
         this.id = article.getId();

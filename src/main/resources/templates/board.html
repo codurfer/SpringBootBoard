@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="p-5 mb-5 bg-light">
-        <h1 style="font-family: 'Black Han Sans', sans-serif">My Board</h1>
+        <h1 style="font-family: 'Black Han Sans', sans-serif" onclick="location.href='/show/board'">My Board</h1>
         <h5 style="font-family: 'Black Han Sans', sans-serif">나의 게시판</h5>
     </div>
     <div class="container" th:each="item : ${articles}">
@@ -18,7 +18,7 @@
             </div>
             <div class="card-body">
                 <p class="card-text" th:text="${item.content}"></p>
-                <a style="float: right" th:href="@{/show/board/{id}(id=${item.id})}">자세히</a>
+                <button style="float: right" type="button" class="btn btn-info" th:onclick="|location.href='@{/show/board/{id}(id=${item.id})}'|">자세히</button>
             </div>
         </div>
         <br>
