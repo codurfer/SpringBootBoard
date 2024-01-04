@@ -18,6 +18,8 @@ dependencies {
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok") // 롬복
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    // 타임리프
+    implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
 }
 
 tasks.test {
