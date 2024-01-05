@@ -12,8 +12,8 @@ if (modifyButton) {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                title: document.getElementById('title').value,
-                content: document.getElementById('content').value
+                title: document.getElementById('inputLarge').value,
+                content: document.getElementById('exampleTextarea').value
             })
         })
             .then(() => {
@@ -21,4 +21,20 @@ if (modifyButton) {
                 location.replace(`/show/board/${id}`);
             });
     });
+}
+
+// 삭제 기능
+const deleteButton = document.getElementById('delete-btn');
+
+if (deleteButton) {
+    deleteButton.addEventListener('click', event => {
+        let id = document.getElementById('article-id').value;
+        fetch(`/board/${id}`, {
+            method: 'DELETE'
+        })
+            .then(() => {
+                alert(id + '게시물은 삭제 되었습니다.');
+                location.replace('/show/board')
+            })
+    })
 }

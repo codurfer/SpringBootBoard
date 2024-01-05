@@ -7,27 +7,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="p-5 mb-5 bg-light">
+    <div class="p-5 mb-5 text-center</> bg-light">
         <h1 style="font-family: 'Black Han Sans', sans-serif" onclick="location.href='/show/board'">My Board</h1>
         <h5 style="font-family: 'Black Han Sans', sans-serif">나의 게시판</h5>
     </div>
-    <div class="container mt-5">
-        <div class="form-group">
-            <article>
-                <input type="hidden" id="article-id" th:value="${article.id}">
-                <header class="mb-4">
-                    <label class="col-form-label col-form-label-lg mt-4" for="inputLarge" th:if="${article.id} != null">글 수정하기</label>
-                    <label class="col-form-label col-form-label-lg mt-4" for="inputLarge" th:if="${article.id} == null">글 새로쓰기</label>
-                    <input type="text" class="form-control form-control-lg" placeholder="제목" id="inputLarge" th:value="${article.title}">
-                </header>
-                <section class="mb-4">
-                    <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="내용" th:text="${article.content}"></textarea>
-                </section>
-                <button th:if="${article.id} != null" type="button" class="btn btn-secondary" id="modify-btn">수정</button>
-                <button th:if="${article.id} == null" type="button" class="btn btn-success" id="create-btn">등록</button>
-            </article>
+    <div class="form-group">
+        <div class="row">
+            <div class="container mt-5">
+                <article>
+                    <input type="hidden" id="article-id" th:value="${article.id}">
+                    <header class="mb-4">
+                        <label class="col-form-label col-form-label-lg mt-4" for="inputLarge" th:if="${article.id} != null">글 수정하기</label>
+                        <label class="col-form-label col-form-label-lg mt-4" for="inputLarge" th:if="${article.id} == null">글 새로쓰기</label>
+                        <input type="text" class="form-control form-control-lg" placeholder="제목" id="inputLarge" th:value="${article.title}">
+                    </header>
+                    <section class="mb-5">
+                        <textarea class="form-control" rows="5" placeholder="내용" id="exampleTextarea" th:text="${article.content}"></textarea>
+                    </section>
+                    <button th:if="${article.id} != null" type="button" id="modify-btn" class="btn btn-secondary">수정</button>
+                    <button th:if="${article.id} == null" type="button" id="create-btn" class="btn btn-success">등록</button>
+                </article>
+            </div>
         </div>
     </div>
-    <script src="/js/board.js"></script>
+<script src="/js/board.js"></script>
 </body>
 </html>
