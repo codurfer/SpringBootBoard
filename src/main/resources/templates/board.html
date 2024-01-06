@@ -11,6 +11,7 @@
         <h1 style="font-family: 'Black Han Sans', sans-serif" onclick="location.href='/show/board'">My Board</h1>
         <h5 style="font-family: 'Black Han Sans', sans-serif">나의 게시판</h5>
     </div>
+    <button type="button" style="margin-left: 9%; margin-bottom: 20px" id="create-btn" class="btn btn-success" th:onclick="|location.href='@{/new-board}'|">글쓰기</button>
     <div class="container" th:each="item : ${articles}">
         <div class="card border-info mb-3" style="max-width: 20rem;">
             <div class="card-header">

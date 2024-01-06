@@ -18,7 +18,7 @@ public class BoardController {
     private final BoardService boardService;
 
     // HTTP 메서드가 POST일 때 전달받은 URL와 동일하면 메서드로 매핑
-    @PostMapping("/test/data")
+    @PostMapping("/board/new")
     // 요청 본문 값 매핑
     public ResponseEntity<Article> addArticle(@RequestBody AddArticleRequest request) {
         Article savedArticle = boardService.save(request);
