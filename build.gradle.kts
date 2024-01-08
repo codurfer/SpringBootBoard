@@ -24,6 +24,10 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-security")
     // 타임리프에서 스프링 시큐리티를 사용
     implementation("org.thymeleaf.extras:thymeleaf-extras-springsecurity6")
+    // 자바 JWT 라이브러리
+    implementation("io.jsonwebtoken:jjwt:0.9.1")
+    // XML 문서와 자바 객체 간 매핑 자동화
+    implementation("javax.xml.bind:jaxb-api:2.3.1")
 }
 
 tasks.test {
